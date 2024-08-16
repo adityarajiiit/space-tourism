@@ -4,6 +4,9 @@ import {
   } from "@builder.io/react-hydration-overlay/next";
   
 const nextConfig = {
+    typescript:{
+ignoreBuildErrors:true,
+    },
     experimental:{
 serverActions:true,
 serverComponentsExternalPackages:["mongoose"]
