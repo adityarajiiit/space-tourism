@@ -17,6 +17,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form"
+import { useOrganization } from '@clerk/nextjs';
 import { Input } from "@/components/ui/input"
 import { ChangeEvent } from 'react';
 import { Textarea } from '../ui/textarea';
@@ -37,6 +38,7 @@ interface Props {
 const PostThread=({userId}:{userId:string})=>{
   const router=useRouter();
   const pathname=usePathname();
+  const {organization}=useOrganization()
    const form=useForm({
     resolver:zodResolver(ThreadValidation),
     defaultValues:{
@@ -45,7 +47,8 @@ const PostThread=({userId}:{userId:string})=>{
     }
    })
    const onSubmit =async (values:z.infer<typeof ThreadValidation>)=>{
-await createThread(
+if(!organization) {
+    await createThread(
     {
         text:values.thread,
         author:userId,
@@ -54,7 +57,18 @@ await createThread(
 
     }
 
+)}else {
+  await createThread(
+    {
+        text:values.thread,
+        author:userId,
+        communityId:organization.id,
+        path:pathname,
+
+    }
+
 )
+}
 router.push("/")
    }
     return (
