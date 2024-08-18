@@ -23,7 +23,7 @@ async function Page() {
                 Onboarding
             </h1>
             <p className="mt-3 text-base-regular text-light-2">
-                Complete your profile now to use Threads
+                Complete your profile now to use TweetStreet
             </p>
             <section className="mt-9 bg-dark-2 p-10">
                 <AccountProfile

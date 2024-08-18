@@ -6,8 +6,8 @@ import { Inter } from 'next/font/google'
 import '../globals.css'
 
 export const metadata = {
-    title: 'Threads',
-    description: 'Threads next14 v1.00 application'
+    title: 'TweetStreet',
+    description: 'TweetStreet next14 v1.00 application'
 }
 
 const inter = Inter({ subsets: ['latin'] })
@@ -15,7 +15,7 @@ const inter = Inter({ subsets: ['latin'] })
 function Header() {
   return (
     <header style={{ display: "flex", justifyContent: "space-between", padding: 20 }}>
-      <h1>Threads</h1>
+      <h1>TweetStreet</h1>
       <SignedIn>
         {}
         <UserButton />
