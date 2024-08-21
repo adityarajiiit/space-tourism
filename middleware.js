@@ -1,8 +1,7 @@
-import { authMiddleware } from "@clerk/nextjs/server";
-export default authMiddleware({
-    publicRoutes:['/','/api/webhook/clerk'],
-    ignoredRoutes:['/api/webhook/clerk']
-})
+import { clerkMiddleware } from "@clerk/nextjs/server";
+
+export default clerkMiddleware();
+
 export const config = {
   matcher: [
     // Skip Next.js internals and all static files, unless found in search params
